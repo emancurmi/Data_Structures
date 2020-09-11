@@ -15,8 +15,8 @@ function main() {
     ]
 
     officers.forEach(officer => {
-        ussEnterprise.insert(officer.key, officer.name)
-    })
+        ussEnterprise.insert(officer.key, officer.name);
+    });
 
     console.log(ussEnterprise.orderOfCommand(ussEnterprise))
 }

@@ -197,16 +197,14 @@ class BinarySearchTree {
     //Left - Right - Current
     postOrder(values = []) {
         if (this.left) {
-            values = this.left.preOrder(values)
+            values = this.left.postOrder(values)
         }
         if (this.right) {
-            values = this.right.preOrder(values)
+            values = this.right.postOrder(values)
         }
         values.push(this.value);
         return values;
     }
-
-
 
 
 }
