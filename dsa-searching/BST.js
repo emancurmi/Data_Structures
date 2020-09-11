@@ -169,7 +169,46 @@ class BinarySearchTree {
 
         return order;
     }
+
+    // Left - Current - Right
+    inOrder(values = []) {
+        if (this.left) {
+            values = this.left.inOrder(values)
+        }
+        values.push(this.value)
+        if (this.right) {
+            values = this.right.inOrder(values)
+        }
+        return values;
+    }
+
+    //Current - Left - Right
+    preOrder(values = []) {
+        values.push(this.value);
+        if (this.left) {
+            values = this.left.preOrder(values)
+        }
+        if (this.right) {
+            values = this.right.preOrder(values)
+        }
+        return values;
+    }
     
+    //Left - Right - Current
+    postOrder(values = []) {
+        if (this.left) {
+            values = this.left.preOrder(values)
+        }
+        if (this.right) {
+            values = this.right.preOrder(values)
+        }
+        values.push(this.value);
+        return values;
+    }
+
+
+
+
 }
 
 module.exports = BinarySearchTree
