@@ -1,5 +1,3 @@
-'use strict';
-
 class BinarySearchTree {
     constructor(key = null, value = null, parent = null) {
         this.key = key;
