@@ -14,9 +14,9 @@ function mergeSort(array) {
 
 
 function merge(l, r, a) {
-    let lI = 0;
-    let rI = 0;
-    let oI = 0;
+    let lI = 0;//left index
+    let rI = 0; //right index
+    let oI = 0;//output index
 
     while (lI < l.length && rI < r.length) {
         if (l[lI] < r[rI]) {

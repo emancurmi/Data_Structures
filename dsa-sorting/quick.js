@@ -1,7 +1,7 @@
 function swap(array, index, start) {
     const temp = array[index];
     array[index] = array[start];
-    array[start = temp];
+    array[start] = temp;
 }
 
 function quickSort(array, start = 0, end = array.length) {
