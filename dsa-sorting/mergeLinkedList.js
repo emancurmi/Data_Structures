@@ -1,62 +1,70 @@
 const LinkedList = require('./linkedlist');
 
-function mergeSort(linkedlist) {
+function mergeSort(sll) {
     let right = new LinkedList();
     let middleVal, middle;
-    let size = linkedlist.size();
-    linkedlist.display();
+    let size = sll.size();
+    sll.display();
 
     if (size <= 1) {
-        console.log('done');
-        return linkedlist;
+        console.log('ending');
+        return sll;
     }
 
-    middleVal = linkedlist.MiddleOfList();
-    middle = ssl.find(middleVal);
+    middleVal = sll.MiddleOfList();
+    middle = sll.find(middleVal);
 
-    console.log('Middle', middle.value);
-    console.log('Left', linkedlist.head.value);
+    console.log('middle', middle.value);
+    console.log('left', sll.head.value);
 
-    right.head = middle.next;
+    right.head = middle.next;   //set middle.next to the beginning of the right side LL
     console.log('right', right.head.value);
-    middle.next = null;
+    middle.next = null;        //break LL in half
 
-    right = mergeSort(right);
-    left = mergeSort(left);
-    return merge(left, right);
+    right = mergeSort(right)
+    left = mergeSort(sll)
+    return merge(left, right)
 }
 
-function merge(l, r) {
-    if (l && r) {
-        l.findLast().next = r.head;
-        return sort(l);
+function merge(left, right) {
+
+    if (left && right) {
+        left.findLast().next = right.head;
+        return sort(left);
     }
+
 }
 
-function sort(linkedlist) {
-    let templ = new LinkedList();
-    let length = linkedlist.size();
+function sort(sll) {
+    let tempList = new LinkedList();
+    let length = sll.size();
     let temp = 0;
-    while (linkedlist.head !== null) {
-        temp = linkedlist.pop();
 
-        if (templ.head === null) {
-            if (linkedlist.peek() < temp) {
-                templ.push(linkedlist.pop());
-                templ.push(temp);
-            } else { templ.push(temp); }
-        } else {
-            while (temp < templ.peek()) {
-                linkedlist.push(templ.pop());
-                if (templ.head === null) break;
+    while (sll.head !== null) {
+
+        temp = sll.pop();
+
+        if (tempList.head === null) {
+            if (sll.peek() < temp) {
+                tempList.push(sll.pop());
+                tempList.push(temp);
+            } else {
+                tempList.push(temp);
             }
-            templ.push(temp);
+        } else {
+            while (temp < tempList.peek()) {
+                sll.push(tempList.pop());
+                if (tempList.head === null) break;
+            }
+            tempList.push(temp);
         }
     }
-    while (templ.head !== null) {
-        linkedlist.push(templ.pop());
+
+    while (tempList.head !== null) {
+        sll.push(tempList.pop());
     }
-    return linkedlist;
+
+    return sll;
 }
 
-module.exports = mergeSort;
+module.exports = mergeSort

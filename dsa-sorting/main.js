@@ -3,6 +3,7 @@ const mergeSort = require('./merge');
 const quickSort = require('./quick');
 const LinkedList = require('./linkedlist');
 const mergeLinkedList = require('./mergeLinkedList');
+const randomize = require('./random');
 
 function ex1() {
     let dataset = [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40];
@@ -46,11 +47,35 @@ function ex5() {
         list.insertFirst(number);
     });
 
+
     console.log("List Sort: " + mergeLinkedList(list));
 
 }
 
-ex1();
-ex3();
-ex4();
+function ex6() {
+
+}
+
+function ex7() {
+    let dataset = [89, 30, 25, 32, 72, 70, 51, 42, 25, 24, 53, 55, 78, 50, 13, 40, 48, 32, 26, 2, 14, 33, 45, 72, 56, 44, 21, 88, 27, 68, 15, 62, 93, 98, 73, 28, 16, 46, 87, 28, 65, 38, 67, 16, 85, 63, 23, 69, 64, 91, 9, 70, 81, 27, 97, 82, 6, 88, 3, 7, 46, 13, 11, 64, 76, 31, 26, 38, 28, 13, 17, 69, 90, 1, 6, 7, 64, 43, 9, 73, 80, 98, 46, 27, 22, 87, 49, 83, 6, 39, 42, 51, 54, 84, 34, 53, 78, 40, 14, 5];
+
+    let sorteddataset = mergeSort(dataset);
+
+    console.log(sorteddataset);
+    console.log(randomize(sorteddataset));
+
+}
+
+function ex8() {
+
+    let dataset = ["Running barefoot", "Halfway to nowhere", "Fight On", "Beyond Death", "If start could talk", "Dream Factory", "When the fuse blows", "Standing still", "Worth the wait"]
+    console.log(quickSort(dataset));
+}
+
+//ex1();
+//ex3();
+//ex4();
 //ex5();
+//ex6();
+//ex7();
+ex8();
